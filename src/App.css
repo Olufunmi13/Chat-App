@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+.app{
+    @apply flex-col overflow-x-hidden
+}
+.nav-text{
+    @apply text-3xl font-bold bg-blue-700 text-center p-2 text-white w-screen h-12 fixed top-0 z-[1]
+}
+.form{
+    @apply flex bg-blue-100 py-5 px-7 rounded w-screen fixed bottom-0
+} 
+.input{
+    @apply flex h-10 p-2 grow bg-white outline-0 border-0 w-screen rounded-2xl pr-6 
+}
+.send-button{
+    @apply bg-blue-700 w-8 h-9 font-extrabold rounded-full -ml-8 mt-[0.05rem]
+}
+.chat-box{
+    @apply bg-back bg-repeat w-screen h-full min-h-screen relative top-12  
+}
+.messages-wrapper{
+    @apply mb-12 pb-14 pr-5 rounded-tl-[10px] rounded-tr-none rounded-br-[10px] rounded-bl-[10px]
+}
+.chat-img{
+    @apply  p-3 mb-4 w-max flex  max-w-[calc(100%_-_100px)]
+}
+.chat-img__left{
+    @apply w-8 h-8 rounded-full mr-2 bg-blue-50
+}
+.chat-img__right {
+    @apply ml-auto rounded-t-sm 
+}
+.right{
+    @apply ml-auto rounded-t-sm bg-slate-100 rounded-tl-none rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px]
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.user-name{
+    @apply mb-1 font-bold text-base
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user-message{
+    @apply break-words
 }
