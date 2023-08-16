@@ -16,21 +16,21 @@ const Welcome: React.FC<{}> = () => {
         auth.signOut();
     }
   return (
-    <div className=' m-36 text-center flex-row justify-center align-middle overflow-hidden'>
+    <div className=' mt-36 text-center  justify-center align-middle min-w-fit overflow-hidden '>
         <h1 
-        className='font-thin'>Welcome to the Chat Room</h1>
+        className='font-thin text-center'>Welcome to the Chat Room</h1>
         {user ? 
         (<button 
             onClick={signOut} 
             type='button'
-            className='p-1 hover:cursor-pointer bg-blue-400 rounded-lg'
+            className='p-1 hover:cursor-pointer bg-blue-400 rounded-lg text-center'
             > 
             Sign Out
         </button>) : 
         (<button 
             onClick={googleSignIn} 
             type='button'
-            className='p-2 group-hover:cursor-pointer bg-blue-400 rounded-lg'
+            className='p-2 group-hover:cursor-pointer bg-blue-400 rounded-lg text-center'
             > 
             Sign in with google
         </button>) }

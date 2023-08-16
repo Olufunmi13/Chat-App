@@ -34,8 +34,13 @@ const Message: React.FC<MessageProps> = ({ message, handleDeleteMessage }) => {
     );
   }
 
+  const isCurrentUser = user?.uid === message.uid
   const handleDeleteButtonClick = () => {
-    handleDeleteMessage(message.dodId);
+    if(isCurrentUser){
+      handleDeleteMessage(message.dodId)
+    }else{
+      alert("You cannot delete this message!")
+    };
   };
 
   return (
@@ -43,7 +48,7 @@ const Message: React.FC<MessageProps> = ({ message, handleDeleteMessage }) => {
       className={`chat-img ${message.uid === user?.uid ? "right" : ""}`}
     >
       <img
-        className="chat-img__left"
+        className="chat-img__left left"
         src={message.avatar}
         alt="user avatar"
       />
