@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage:{
         'back': 'url(./img/background.jpg)',
+        'login': 'url(./img/img1.jpg)',
       },
       
     },

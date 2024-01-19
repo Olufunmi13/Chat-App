@@ -5,13 +5,13 @@
     @apply text-3xl font-bold bg-blue-700 text-center p-2 text-white w-screen h-12 fixed top-0 z-[1]
 }
 .form{
-    @apply flex bg-blue-100 py-5 px-7 rounded w-screen fixed bottom-0
+    @apply flex bg-[#037CD9] py-5 px-7 rounded w-screen fixed bottom-0
 } 
 .input{
-    @apply flex h-10 p-2 grow bg-white outline-0 border-0 w-screen rounded-2xl pr-6 
+    @apply flex h-10 p-2 grow bg-[#E9ECF6] outline-0 border-0 w-screen rounded-2xl pr-6 
 }
 .send-button{
-    @apply bg-blue-700 w-8 h-9 font-extrabold rounded-full -ml-8 mt-[0.05rem]
+    @apply bg-[#013397] w-10 text-center h-9 text-[#eceef1] font-extrabold rounded-full -ml-8 mt-[0.05rem]
 }
 .chat-box{
     @apply bg-back bg-repeat w-screen h-full min-h-screen relative top-12  

@@ -16,7 +16,7 @@ const Welcome: React.FC<{}> = () => {
         auth.signOut();
     }
   return (
-    <div className=' mt-36 text-center  justify-center align-middle min-w-fit overflow-hidden '>
+    <div className='mt-36 text-center  justify-center align-middle min-w-fit overflow-hidden'>
         <h1 
         className='font-thin text-center'>Welcome to the Chat Room</h1>
         {user ? 

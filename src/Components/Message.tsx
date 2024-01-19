@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { auth } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import '../App.css';
 import { IconTrash } from '@tabler/icons-react';
 import { format } from "date-fns";
+import ConfirmationDialog from './ConfirmationDialog';
 
 
 interface MessageProps {
@@ -22,6 +23,8 @@ interface MessageProps {
 
 const Message: React.FC<MessageProps> = ({ message, handleDeleteMessage }) => {
   const [user] = useAuthState(auth);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
 
   let formattedTimestamp = ""; // Initialize formattedTimestamp
 
@@ -37,21 +40,33 @@ const Message: React.FC<MessageProps> = ({ message, handleDeleteMessage }) => {
   const isCurrentUser = user?.uid === message.uid
   const handleDeleteButtonClick = () => {
     if(isCurrentUser){
-      handleDeleteMessage(message.dodId)
+      setIsDialogOpen(true);
     }else{
       alert("You cannot delete this message!")
     };
   };
 
+  const handleConfirmDelete = () => {
+    handleDeleteMessage(message.dodId);
+    setIsDialogOpen(false);
+  };
+ 
+  const handleCancelDelete = () => {
+    setIsDialogOpen(false);
+  };
+
   return (
     <div
       className={`chat-img ${message.uid === user?.uid ? "right" : ""}`}
-    >
+    > {message.avatar.length === 1 ? (
+      <div className="bg-[#088d7e] text-white rounded-full w-8 h-8 flex justify-center items-center">{message.avatar}</div>
+    ) : (
       <img
         className="chat-img__left left"
         src={message.avatar}
         alt="user avatar"
       />
+    )}
       <div className="chat-img__right">
         <p className="user-name">{message.name}</p>
         <p className="user-message">{message.text}</p>
@@ -62,9 +77,13 @@ const Message: React.FC<MessageProps> = ({ message, handleDeleteMessage }) => {
            <button className="delete-button" onClick={handleDeleteButtonClick}>
                <IconTrash color="blue"/>
             </button> 
-        </div>
-            
-        </div>
+        </div>      
+      </div>
+      <ConfirmationDialog 
+       isOpen={isDialogOpen} 
+       onConfirm={handleConfirmDelete} 
+       onCancel={handleCancelDelete} 
+     />
     </div>
   );
 };

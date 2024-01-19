@@ -21,7 +21,7 @@ const SendMessage: React.FC<SendMessageProps> = ({scroll}) => {
       await addDoc(collection(db, "message"), {
         text: message,
         name: displayName,
-        avatar: photoURL,
+        avatar: photoURL || (displayName ? displayName.charAt(0).toUpperCase() : null),
         createdAt: serverTimestamp(),
         uid,
       });
@@ -44,7 +44,7 @@ const SendMessage: React.FC<SendMessageProps> = ({scroll}) => {
         onChange={(e) => setMessage(e.target.value)}
         className='input'
         />
-        <button className='send-button' type='submit'><IconSend /></button>
+        <button className='send-button' type='submit'><IconSend size={34} /></button>
     </form>
   )
 }
