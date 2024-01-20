@@ -53,7 +53,7 @@ function App() {
     <div className="app">
       <Routes>
           <Route index element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route element={<ProtectedRoute />}>
            <Route path="/chatbox" element={<ChatBox />} /> 
           </Route>
