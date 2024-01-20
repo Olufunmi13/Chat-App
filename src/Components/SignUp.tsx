@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { 
   GoogleAuthProvider,
-  signInWithPopup, 
+  signInWithRedirect,
   createUserWithEmailAndPassword,
   updateProfile } from 
   "firebase/auth";
@@ -30,7 +30,8 @@ const SignUp: React.FC<{}> = () => {
   
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider);
+    signInWithRedirect(auth, provider);
+    // navigate('/chatbox');
 };
 
 
